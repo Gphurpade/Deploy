@@ -23,15 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="fixed flex items-center justify-end font-bold w-screen bg-black h-15">
-          <div className="flex w-1/3 justify-around text-white items-center cursor-pointer">
-              <div className="hover:text-white/50 duration-500">About</div>
-              <Link href="/products" className="hover:text-white/50 duration-500">Products</Link>
-              <Link href="/signup" className="hover:text-white/50 duration-500">Signup</Link>
-              <div className="hover:text-white/50 duration-500">Info111</div>
-            
-          </div>
-        </div>
+        
         {children}
       </body>
     </html>

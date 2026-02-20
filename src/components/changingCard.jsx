@@ -10,8 +10,10 @@ export default function state (props){
 
     return(
         <div className="flex h-60 w-60 bg-green-300 rounded-xl shadow-2xl">
-            <button onClick={a}>Next {count}</button>
-           <div id="1" className="text-red-600 bg-white w-3/4">ABC</div>
+            <button onClick={() => updateCard(
+                id=count, ClassName="visible"
+            )}>Next {count}</button>
+           <div id="1" className="text-red-600 bg-white w-3/4">{count}</div>
             <div id="2" className="hidden">def</div>
             <div id="3" className="hidden">ABC</div>
         </div>
