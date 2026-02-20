@@ -1,8 +1,7 @@
-import { createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
+import { createServerClient, serializeCookieHeader } from '@supabase/ssr'
 
-export async function createClient() {
-  const cookieStore = await cookies()
+export function createPagesServerClient(context) {
+  const { req, res } = context;
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -10,11 +9,16 @@ export async function createClient() {
     {
       cookies: {
         getAll() {
-          return cookieStore.getAll()
+          // req.cookies is available in Pages Router
+          return Object.keys(req.cookies).map((name) => ({
+            name,
+            value: req.cookies[name],
+          }))
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => {
-            cookieStore.set(name, value, options)
+            // Use setHeader for the Pages Router
+            res.appendHeader('Set-Cookie', serializeCookieHeader(name, value, options))
           })
         },
       },

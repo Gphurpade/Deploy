@@ -1,11 +1,12 @@
 "use client";
-import { supabase } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/client";
 import { useState,useEffect } from "react";
 export default function Quote() {
 const [q, setQuote]= useState([]);
 
 useEffect(() => {
     const fetchQuotes= async () =>{
+        const supabase = createClient();
         const { data,error} = await supabase
         .from('quotes')
         .select('quote,author')
