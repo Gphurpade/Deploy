@@ -9,14 +9,14 @@ const PATTERNS = [
     name: 'SaaS Dot Grid', 
     type: 'Tailwind',
     className: "bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]",
-    style: { backgroundColor: '#ffffff', backgroundImage: 'radial-gradient(#e5e7eb 1px, transparent 1px)', backgroundSize: '16px 16px' }
+    style: { backgroundColor: '#000000', backgroundImage: 'radial-gradient(#e5e7eb 1px, transparent 1px)', backgroundSize: '16px 16px' }
   },
   { 
     id: 'blueprint', 
     name: 'Blueprint Grid', 
     type: 'Tailwind',
     className: "bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]",
-    style: { backgroundColor: '#ffffff', backgroundImage: 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)', backgroundSize: '24px 24px' }
+    style: { backgroundColor: '#000000', backgroundImage: 'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)', backgroundSize: '24px 24px' }
   },
   { 
     id: 'isogonal-mesh', 
@@ -34,8 +34,8 @@ const PATTERNS = [
     name: 'Tech Circuit', 
     type: 'CSS',
     style: { 
-      backgroundColor: '#ffffff',
-      backgroundImage: 'linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 0), linear-gradient(rgba(0,0,0,.03) 1px, transparent 0), linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 0), linear-gradient(rgba(0,0,0,.06) 1px, transparent 0)',
+      backgroundColor: '#000000',
+      backgroundImage: 'linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 0), linear-gradient(rgba(255, 255, 255, 0.36) 1px, transparent 0), linear-gradient(90deg, rgb(255, 255, 255) 1px, transparent 0), linear-gradient(rgb(255, 255, 255) 1px, transparent 0)',
       backgroundSize: '20px 20px, 20px 20px, 100px 100px, 100px 100px'
     }
   },
@@ -44,7 +44,7 @@ const PATTERNS = [
     name: 'Modern ZigZag', 
     type: 'CSS',
     style: { 
-        backgroundColor: '#ffffff', 
+        backgroundColor: '#000000', 
         backgroundImage: 'linear-gradient(135deg, #f0f0f0 25%, transparent 25%), linear-gradient(225deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(315deg, #f0f0f0 25%, transparent 25%)', 
         backgroundPosition: '10px 0, 10px 0, 0 0, 0 0', 
         backgroundSize: '20px 20px' 
