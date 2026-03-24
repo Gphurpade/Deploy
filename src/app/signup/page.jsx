@@ -14,15 +14,20 @@ export default function SignupPage() {
   
   const supabase = createClient();
 
-  async function handleSignUp() {
+ async function handleSignUp() {
     try {
       setError("");
       setLoading(true);
 
       const { data, error: signUpError } = await supabase.auth.signUp({
-        enteredName,
         email,
         password,
+        // The "options" object is where metadata goes
+        options: {
+          data: {
+            full_name: enteredName, // You can name this key whatever you like
+          },
+        },
       });
 
       if (signUpError) {
@@ -31,7 +36,7 @@ export default function SignupPage() {
       }
 
       setError("✅ Sign up successful! Redirecting...");
-      window.location.href = "/profile";
+      // window.location.href = "/profile"; // Optional: Use router.push if using Next.js navigation
     } catch (err) {
       setError(`❌ ${err.message}`);
     } finally {

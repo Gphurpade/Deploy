@@ -39,7 +39,7 @@ async function handleSignIn() {
 
   function handleClick() {
     console.log("Button Clicked");
-    console.log("Entered Name:", );
+    console.log("Entered Name:");
     console.log("Email:", email);
     console.log("Password length:", password.length);
   }

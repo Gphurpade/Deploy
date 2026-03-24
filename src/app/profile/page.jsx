@@ -2,12 +2,32 @@
 import Link from 'next/link';
 import {motion} from 'framer-motion';
 import { MoveRight } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 
 
 
+export default function ProfilePage() {
+  const [userName, setUserName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const supabase = createClient();
 
-export default function ProfilePage({ name }) {
-  
+  useEffect(() => {
+    async function getUserData() {
+      // 1. Get the current logged-in user
+      const { data: { user }, error } = await supabase.auth.getUser();
+
+      if (user) {
+        // 2. Access the metadata we saved during sign-up
+        const name = user.user_metadata?.full_name; 
+        setUserName(name || "User");
+      }
+      
+      setLoading(false);
+    }
+
+    getUserData();
+  }, [supabase]);
 const ProjectCard = ({ title, category, image, link }) => {
   return (
     <Link href={link} >
@@ -71,7 +91,7 @@ const ProjectCard = ({ title, category, image, link }) => {
       
         <div className="h-screen w-screen text-center bg-red-100 flex flex-col ">
             <div className="mt-25 flex flex-col justify-start items-start w-full px-10 py-5">
-            <h1 className="font-bold text-red-300 text-6xl mb-10">Welcome to Your Profile {name}</h1>
+            <h1 className="font-bold text-red-300 text-6xl mb-10">Welcome, {userName} !!</h1>
             <hr className="w-1/2 border-t border-gray-800"></hr>
                 </div>
             <Gallery />
